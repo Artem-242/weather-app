@@ -49,7 +49,7 @@ export const Days = () => {
 		{
 			day: 'Today',
 			date: "28 feb",
-			icon : "Sunny",
+			icon : "Rain",
 			temperature_day: "+18",
 			temperature_night: "+15",
 			clouds: 'Cloudy'
@@ -57,7 +57,7 @@ export const Days = () => {
 		{
 			day: 'Today',
 			date: "28 feb",
-			icon : "Sunny",
+			icon : "Rain",
 			temperature_day: "+18",
 			temperature_night: "+15",
 			clouds: 'Cloudy'
@@ -65,7 +65,7 @@ export const Days = () => {
 		{
 			day: 'Today',
 			date: "28 feb",
-			icon : "Sunny",
+			icon : "Rain",
 			temperature_day: "+18",
 			temperature_night: "+15",
 			clouds: 'Cloudy'
@@ -76,7 +76,7 @@ export const Days = () => {
 	        <div className="">
 		        <Tabs />
 	        </div>
-	        <div className="flex justify-between w-full flex-wrap gap-[15px] rounded-bl-[20px] rounded-br-[20px] shadow p-[20px]">
+	        <div className="flex justify-between w-full flex-wrap gap-[15px] rounded-bl-[20px] rounded-br-[20px] shadow p-[20px] dark:bg-neutral-600">
 		        {items.map((item : Item) => <OneDayCard item={item}/>)}
 	        </div>
         </div>

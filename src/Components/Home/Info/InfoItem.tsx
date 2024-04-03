@@ -1,5 +1,5 @@
 import React from "react";
-import {Item} from "./Info";
+import {Item} from "../../../scripts/Info";
 import {SvgSelector} from "../../../icons/SvgSelector";
 
 
@@ -12,11 +12,11 @@ export const InfoItem = ({item} : Props) => {
 
     return(
 	    <div className='flex items-center gap-[20px]'>
-		    <div className='flex justify-center items-center w-[38px] h-[38px] bg-white rounded-full shadow'>
+		    <div className='flex justify-center items-center w-[38px] h-[38px] rounded-full shadow dark:bg-white'>
 			    <SvgSelector id={icon} />
 		    </div>
-		    <p className='text-slate-400 text-sm'>{title}</p>
-		    <p className='text-black text-sm right'>{text}</p>
+		    <p className='text-slate-400 text-sm flex s:flex-auto flex md:flex-none'>{title}</p>
+		    <p className='text-black text-sm right dark:text-white'>{text}</p>
 	    </div>
 
     );
