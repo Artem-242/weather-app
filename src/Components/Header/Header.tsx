@@ -1,8 +1,26 @@
 import React from "react";
 import {SvgSelector} from "../../icons/SvgSelector";
 import {HeaderSelect} from "./HeaderSelect";
+import {useState, useEffect} from "react";
+//import {handleInputChange} from "react-select/dist/declarations/src/utils";
 
 export const Header = () => {
+
+    const [darkMode, setDarkMode] = useState("light")
+
+    useEffect(() => {
+        if (darkMode === "dark"){
+            document.documentElement.classList.add("dark");
+        }
+        else{
+            document.documentElement.classList.remove("dark")
+        }
+    }, [darkMode] );
+
+    const darkModeSwitch = () => {
+        setDarkMode(darkMode === "dark" ? "light" : "dark");
+    };
+
     return(
 		<div>
             <div className=' min-h-[115px] md:flex md:items-center md:justify-between'>
@@ -11,12 +29,12 @@ export const Header = () => {
                         <div className=""><SvgSelector id="HeaderLogo"/></div>
                         <h1 className="text-blue-500 text-[25px] font-bold uppercase hidden md:block ">React Weather</h1>
                     </div>
-                    <button className="md:hidden"><SvgSelector id="Header-scheme-icon"/></button>
+                    <button onClick={darkModeSwitch} className="md:hidden"><SvgSelector id="Header-scheme-icon"/></button>
                 </div>
                 <div className="gap-[20px] mt-[10px] md:flex md:items-center md:mt-0 ">
-                    <button className="hidden md:block"><SvgSelector id="Header-scheme-icon"/></button>
+                    <button onClick={darkModeSwitch} className="hidden md:block"><SvgSelector id="Header-scheme-icon"/></button>
                     <div className="w-full md:w-[194px]">
-                        <HeaderSelect />
+                        <HeaderSelect darkMode={darkMode} />
                     </div>
                 </div>
             </div>
