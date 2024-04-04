@@ -6,7 +6,7 @@ import {SvgSelector} from "../../../icons/SvgSelector";
 interface Props{
 	item: Item;
 }
-export const InfoItem = ({item} : Props) => {
+ export const InfoItem = ({item} : Props) => {
 
 	const {icon, title, text} = item;
 
