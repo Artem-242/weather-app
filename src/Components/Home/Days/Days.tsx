@@ -77,7 +77,7 @@ export const Days = () => {
 		        <Tabs />
 	        </div>
 	        <div className="flex justify-between w-full flex-wrap gap-[15px] rounded-bl-[20px] rounded-br-[20px] shadow p-[20px] dark:bg-neutral-600">
-		        {items.map((item : Item) => <OneDayCard item={item}/>)}
+		        {items.map((item : Item , index:number) => <OneDayCard key={index} item={item}/>)}
 	        </div>
         </div>
     );

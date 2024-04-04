@@ -23,6 +23,6 @@ export const items : Item[] = [
 	{
 		icon : "Wind",
 		title: "Wind",
-		text: "20° - feels like 17°",
+		text: "3 м/с юго-запад - легкий ветер",
 		},
 	]
