@@ -1,13 +1,12 @@
 import React from "react";
-import {Item} from "../../../scripts/Info";
 import {SvgSelector} from "../../../icons/SvgSelector";
-
+import {ItemTypes} from "./Info";
 
 interface Props{
-	item: Item;
-}
-export const InfoItem = ({item} : Props) => {
+	item: ItemTypes;
+};
 
+ export const InfoItem = ({item} : Props) => {
 	const {icon, title, text} = item;
 
     return(
