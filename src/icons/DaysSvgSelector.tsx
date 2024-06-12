@@ -7,7 +7,7 @@ interface Props {
 
 export const DaysSvgSelector = ({weatherCode, iconStyles}: Props) => {
 	if (weatherCode === 0) {
-		return (<svg className={iconStyles} width="48" height="48" viewBox="0 0 119 119" fill="none" xmlns="http://www.w3.org/2000/svg">
+		return (<svg className={iconStyles} width="45" height="45" viewBox="0 0 119 119" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path
 				d="M59.5229 88.0144C75.2638 88.0144 88.0243 75.2545 88.0243 59.5144C88.0243 43.7742 75.2638 31.0143 59.5229 31.0143C43.782 31.0143 31.0215 43.7742 31.0215 59.5144C31.0215 75.2545 43.782 88.0144 59.5229 88.0144Z"
 				fill="url(#paint0_linear_2_179)"/>
@@ -22,7 +22,7 @@ export const DaysSvgSelector = ({weatherCode, iconStyles}: Props) => {
 			</defs>
 		</svg>); // sunny
 	} else if (weatherCode === 57 || weatherCode === 65 || weatherCode === 67 || weatherCode === 80 || weatherCode === 81 || weatherCode === 82) {
-		return (<svg className={iconStyles} width="36" height="34" viewBox="0 0 36 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+		return (<svg className={iconStyles} width="45" height="45" viewBox="0 0 36 34" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path
 				d="M8.21798 26.926L6.11798 31.924C5.79798 32.688 6.15598 33.568 6.91998 33.888C7.68398 34.208 8.56398 33.85 8.88398 33.086L10.984 28.088C11.304 27.324 10.946 26.444 10.182 26.124C9.41798 25.804 8.53798 26.162 8.21798 26.926ZM24.218 26.926L22.118 31.924C21.798 32.688 22.156 33.568 22.92 33.888C23.684 34.208 24.564 33.85 24.884 33.086L26.984 28.088C27.304 27.324 26.946 26.444 26.182 26.124C25.418 25.804 24.538 26.162 24.218 26.926ZM16.218 24.926L14.118 29.924C13.798 30.688 14.156 31.568 14.92 31.888C15.684 32.208 16.564 31.85 16.884 31.086L18.984 26.088C19.304 25.324 18.946 24.444 18.182 24.124C17.418 23.804 16.538 24.162 16.218 24.926Z"
 				fill="#66AFEB"/>
@@ -46,7 +46,7 @@ export const DaysSvgSelector = ({weatherCode, iconStyles}: Props) => {
 			</defs>
 		</svg>) //heavy rain
 	} else if (weatherCode === 51 || weatherCode === 53 || weatherCode === 55 || weatherCode === 56 || weatherCode === 61 || weatherCode === 63 || weatherCode === 66) {
-		return (<svg className={iconStyles} width="36" height="34" viewBox="0 0 36 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+		return (<svg className={iconStyles} width="45" height="45" viewBox="0 0 36 34" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path
 				d="M10.218 26.926L8.11798 31.924C7.79798 32.688 8.15598 33.568 8.91998 33.888C9.68398 34.208 10.564 33.85 10.884 33.086L12.984 28.088C13.304 27.324 12.946 26.444 12.182 26.124C11.418 25.804 10.538 26.162 10.218 26.926ZM20.218 24.926L18.118 29.924C17.798 30.688 18.156 31.568 18.92 31.888C19.684 32.208 20.564 31.85 20.884 31.086L22.984 26.088C23.304 25.324 22.946 24.444 22.182 24.124C21.418 23.804 20.538 24.162 20.218 24.926Z"
 				fill="#66AFEB"/>
@@ -70,7 +70,7 @@ export const DaysSvgSelector = ({weatherCode, iconStyles}: Props) => {
 			</defs>
 		</svg>) //rain
 	} else if (weatherCode === 1 || weatherCode === 2) {
-		return (<svg className={iconStyles} width="44" height="46" viewBox="0 0 44 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+		return (<svg className={iconStyles} width="45" height="45" viewBox="0 0 44 46" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path
 				d="M28 24C32.4183 24 36 20.4183 36 16C36 11.5817 32.4183 8 28 8C23.5817 8 20 11.5817 20 16C20 20.4183 23.5817 24 28 24Z"
 				fill="url(#paint0_linear_2_531)"/>
@@ -102,7 +102,7 @@ export const DaysSvgSelector = ({weatherCode, iconStyles}: Props) => {
 			</defs>
 		</svg>) //rain with sun
 	} else if (weatherCode === 3) {
-		return (<svg className={iconStyles} width="40" height="31" viewBox="0 0 40 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+		return (<svg className={iconStyles} width="45" height="45" viewBox="0 0 40 31" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path opacity="0.32"
 			      d="M34 21C37.314 21 40 18.314 40 15C40 11.686 37.314 9 34 9H33.938C33.978 8.672 34 8.338 34 8C34 3.582 30.418 0 26 0C22.5 0 19.524 2.248 18.44 5.378C17.67 5.132 16.852 5 16 5C11.582 5 8 8.582 8 13C8 17.418 11.582 21 16 21C16.69 21 17.36 20.912 18 20.748V21H34Z"
 			      fill="#73A5E6"/>
@@ -126,7 +126,7 @@ export const DaysSvgSelector = ({weatherCode, iconStyles}: Props) => {
 			</defs>
 		</svg>) //cloud
 	} else if (weatherCode === 71 || weatherCode === 73 || weatherCode === 75 || weatherCode === 77 || weatherCode === 85 || weatherCode === 86) {
-		return (<svg className={iconStyles} width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+		return (<svg className={iconStyles} width="45" height="45" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<circle cx="9" cy="27" r="3" fill="#FFFFFF"/>
 			<circle cx="18" cy="27" r="3" fill="#FFFFFF"/>
 			<circle cx="27" cy="27" r="3" fill="#FFFFFF"/>
@@ -150,7 +150,7 @@ export const DaysSvgSelector = ({weatherCode, iconStyles}: Props) => {
 			</defs>
 		</svg>) //snow
 	} else if (weatherCode === 95 || weatherCode === 96 || weatherCode === 99) {
-		return (<svg className={iconStyles} width="36" height="34" viewBox="0 0 36 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+		return (<svg className={iconStyles} width="45" height="45" viewBox="0 0 36 34" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path
 					d="M8.21798 26.926L6.11798 31.924C5.79798 32.688 6.15598 33.568 6.91998 33.888C7.68398 34.208 8.56398 33.85 8.88398 33.086L10.984 28.088C11.304 27.324 10.946 26.444 10.182 26.124C9.41798 25.804 8.53798 26.162 8.21798 26.926ZM24.218 26.926L22.118 31.924C21.798 32.688 22.156 33.568 22.92 33.888C23.684 34.208 24.564 33.85 24.884 33.086L26.984 28.088C27.304 27.324 26.946 26.444 26.182 26.124C25.418 25.804 24.538 26.162 24.218 26.926ZM16.218 24.926L14.118 29.924C13.798 30.688 14.156 31.568 14.92 31.888C15.684 32.208 16.564 31.85 16.884 31.086L18.984 26.088C19.304 25.324 18.946 24.444 18.182 24.124C17.418 23.804 16.538 24.162 16.218 24.926Z"
 					fill="#FFD700"/>
@@ -173,7 +173,7 @@ export const DaysSvgSelector = ({weatherCode, iconStyles}: Props) => {
 				</defs>
 			</svg>); //thunderstorm
 	} else if (weatherCode === 45 || weatherCode === 48) {
-		return (<svg className={iconStyles} width="36" height="34" viewBox="0 0 36 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+		return (<svg className={iconStyles} width="45" height="45" viewBox="0 0 36 34" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path
 				d="M8.21798 26.926L6.11798 31.924C5.79798 32.688 6.15598 33.568 6.91998 33.888C7.68398 34.208 8.56398 33.85 8.88398 33.086L10.984 28.088C11.304 27.324 10.946 26.444 10.182 26.124C9.41798 25.804 8.53798 26.162 8.21798 26.926ZM24.218 26.926L22.118 31.924C21.798 32.688 22.156 33.568 22.92 33.888C23.684 34.208 24.564 33.85 24.884 33.086L26.984 28.088C27.304 27.324 26.946 26.444 26.182 26.124C25.418 25.804 24.538 26.162 24.218 26.926ZM16.218 24.926L14.118 29.924C13.798 30.688 14.156 31.568 14.92 31.888C15.684 32.208 16.564 31.85 16.884 31.086L18.984 26.088C19.304 25.324 18.946 24.444 18.182 24.124C17.418 23.804 16.538 24.162 16.218 24.926Z"
 				fill="#00FFFF"/>

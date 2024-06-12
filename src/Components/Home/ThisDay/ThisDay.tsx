@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {RootState} from "../../../Store/store";
 import {useSelector} from "react-redux";
 import {DaysSvgSelector} from "../../../icons/DaysSvgSelector";
@@ -18,6 +18,7 @@ export const ThisDay = () => {
 		const monthName = getMonthName(month);
 		return `${day} ${monthName}`;
 	}
+
 
 
 	return (

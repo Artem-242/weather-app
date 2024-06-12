@@ -9,8 +9,9 @@ interface DailyWeather {
 	precipitation_sum: number[];
 	wind_speed_10m_max: number[];
 	wind_direction_10m_dominant: number[];
-}
+	apparent_temperature_max: number[];
 
+}
 interface CurrentWeather {
 	temperature_2m: number;
 	apparent_temperature: number;
@@ -20,7 +21,6 @@ interface CurrentWeather {
 	wind_direction_10m: number;
 	weather_code: number;
 }
-
 interface WeatherApiResponse {
 	dailyWeather: DailyWeather;
 	currentWeather: CurrentWeather;
@@ -65,12 +65,6 @@ export const initialState: MyState = {
 	currentWeatherCode: [],
 }
 
-interface apiResponce {
-	MyState: MyState;
-	dailyWeather: any;
-	currentWeather: any
-}
-
 export const getWeatherFromApi = createAsyncThunk<WeatherApiResponse, string>(
 	'weather/getWeatherFromApi',
 	async (inputValue, thunkAPI) => {
@@ -93,8 +87,8 @@ export const getWeatherFromApi = createAsyncThunk<WeatherApiResponse, string>(
 				throw new Error("Invalid weather data received from the API.");
 			}
 
-			const dailyWeather: DailyWeather = fetchWeather.daily;
-			const currentWeather: CurrentWeather = fetchWeather.current;
+			const dailyWeather = fetchWeather.daily;
+			const currentWeather = fetchWeather.current;
 
 
 			return { dailyWeather, currentWeather };
@@ -129,6 +123,7 @@ export const weatherReducer = createSlice({
 				state.time = dailyWeather.time;
 				state.temperatureMax = dailyWeather.temperature_2m_max;
 				state.temperatureMin = dailyWeather.temperature_2m_min;
+				state.apparentTemperatureMax = dailyWeather.apparent_temperature_max;
 				state.weatherCode = dailyWeather.weather_code;
 				state.precipitation = dailyWeather.precipitation_sum;
 				state.windSpeed = dailyWeather.wind_speed_10m_max;
