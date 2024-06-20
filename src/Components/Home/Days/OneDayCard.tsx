@@ -1,9 +1,6 @@
 import React, {useState} from "react";
 import {DaysSvgSelector} from "../../../icons/DaysSvgSelector";
-import {useSelector} from "react-redux";
-import {RootState} from "../../../Store/store";
 import {Day} from "./Days";
-import {DayPopup} from "../../Popup/DayPopup";
 
 interface Props {
 	day: Day;

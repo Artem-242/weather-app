@@ -3,8 +3,6 @@ import {Header} from "../Header/Header";
 import {ThisDay} from "./ThisDay/ThisDay";
 import {Info} from "./Info/Info";
 import {Days} from "./Days/Days";
-import {DayPopup} from "../Popup/DayPopup"
-import {fromAddress, setKey, setLanguage} from "react-geocode";
 
 export const Home = () => {
 	return (

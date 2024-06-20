@@ -25,7 +25,6 @@ interface WeatherApiResponse {
 	dailyWeather: DailyWeather;
 	currentWeather: CurrentWeather;
 }
-
 export interface MyState {
 	defaultCity: string;
 	cityName: string;
@@ -74,7 +73,7 @@ export const getWeatherFromApi = createAsyncThunk<WeatherApiResponse, string>(
 
 			const results = await fromAddress(inputValue);
 			if (!results || results.length === 0) {
-				throw new Error("No results found for the provided address.");
+				alert("No results found.");
 			}
 
 			const { lat, lng } = results.results[0].geometry.location;
@@ -84,7 +83,7 @@ export const getWeatherFromApi = createAsyncThunk<WeatherApiResponse, string>(
 			const fetchWeather = await response.json();
 
 			if (!fetchWeather || !fetchWeather.daily || !fetchWeather.current) {
-				throw new Error("Invalid weather data received from the API.");
+				alert("Invalid weather data received from the API.");
 			}
 
 			const dailyWeather = fetchWeather.daily;
@@ -93,10 +92,7 @@ export const getWeatherFromApi = createAsyncThunk<WeatherApiResponse, string>(
 
 			return { dailyWeather, currentWeather };
 		} catch (error) {
-			let errorMessage = "An unknown error occurred";
-			if (error instanceof Error) {
-				errorMessage = error.message;
-			}
+			let errorMessage = alert("City not found.");
 			return thunkAPI.rejectWithValue({ message: errorMessage });
 		}
 	}
