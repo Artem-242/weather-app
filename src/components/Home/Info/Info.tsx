@@ -2,7 +2,7 @@ import React from "react";
 import clouds from "../../../images/clouds.png";
 import {InfoItem} from "./InfoItem";
 import {useSelector} from "react-redux";
-import {RootState} from "../../../Store/store";
+import {RootState} from "../../../store/store";
 
 export interface ItemTypes {
 	icon: string;

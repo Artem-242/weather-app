@@ -1,5 +1,16 @@
-import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {fromAddress, setKey, setLanguage} from "react-geocode";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { fromAddress, setKey, setLanguage } from "react-geocode";
+
+interface LocationResult {
+	results: {
+		geometry: {
+			location: {
+				lat: number;
+				lng: number;
+			};
+		};
+	}[];
+}
 
 interface DailyWeather {
 	time: string[];
@@ -10,8 +21,8 @@ interface DailyWeather {
 	wind_speed_10m_max: number[];
 	wind_direction_10m_dominant: number[];
 	apparent_temperature_max: number[];
-
 }
+
 interface CurrentWeather {
 	temperature_2m: number;
 	apparent_temperature: number;
@@ -21,10 +32,12 @@ interface CurrentWeather {
 	wind_direction_10m: number;
 	weather_code: number;
 }
+
 interface WeatherApiResponse {
 	dailyWeather: DailyWeather;
 	currentWeather: CurrentWeather;
 }
+
 export interface MyState {
 	defaultCity: string;
 	cityName: string;
@@ -33,9 +46,9 @@ export interface MyState {
 	time: string[];
 	temperatureMax: number[];
 	temperatureMin: number[];
-	precipitation: number[],
-	windSpeed: number[],
-	windDirection: number[],
+	precipitation: number[];
+	windSpeed: number[];
+	windDirection: number[];
 	currentTemperature: number[];
 	currentApparentTemperature: number[];
 	currentPrecipitation: number[];
@@ -44,6 +57,7 @@ export interface MyState {
 	currentWindDirection: number[];
 	currentWeatherCode: number[];
 }
+
 export const initialState: MyState = {
 	defaultCity: '',
 	cityName: '',
@@ -62,40 +76,43 @@ export const initialState: MyState = {
 	currentWindSpeed: [],
 	currentWindDirection: [],
 	currentWeatherCode: [],
-}
+};
 
 export const getWeatherFromApi = createAsyncThunk<WeatherApiResponse, string>(
 	'weather/getWeatherFromApi',
 	async (inputValue, thunkAPI) => {
 		try {
-			setKey("AIzaSyA0eoPOJX49wVcr306EUnB-jqkbZGEA0pU");
+			setKey("AIzaSyAMAXcEATRguURsekItDhSz-32A6FdH_rE");
 			setLanguage('en');
 
-			const results = await fromAddress(inputValue);
-			if (!results || results.length === 0) {
-				alert("No results found.");
+			const results: LocationResult = await fromAddress(inputValue);
+			if (!results || results.results.length === 0) {
+				throw new Error("No geocode results found.");
 			}
 
 			const { lat, lng } = results.results[0].geometry.location;
-			const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current=temperature_2m,apparent_temperature,precipitation,weather_code,surface_pressure,wind_speed_10m,wind_direction_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,apparent_temperature_max,precipitation_sum,wind_speed_10m_max,wind_direction_10m_dominant&wind_speed_unit=ms&timezone=Europe%2FBerlin`;
-
-			const response = await fetch(url);
-			const fetchWeather = await response.json();
-
-			if (!fetchWeather || !fetchWeather.daily || !fetchWeather.current) {
-				alert("Invalid weather data received from the API.");
+			const url: string = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current=temperature_2m,apparent_temperature,precipitation,weather_code,surface_pressure,wind_speed_10m,wind_direction_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,apparent_temperature_max,precipitation_sum,wind_speed_10m_max,wind_direction_10m_dominant&wind_speed_unit=ms&timezone=Europe%2FBerlin`;
+			const response: Response = await fetch(url);
+			if (!response.ok) {
+				throw new Error(`Weather API request failed with status ${response.status}`);
 			}
 
-			const dailyWeather = fetchWeather.daily;
-			const currentWeather = fetchWeather.current;
+			const fetchWeather = await response.json();
+			if (!fetchWeather || !fetchWeather.daily || !fetchWeather.current) {
+				throw new Error("Invalid weather data received from the API.");
+			}
 
+			const dailyWeather: DailyWeather = fetchWeather.daily;
+			const currentWeather: CurrentWeather = fetchWeather.current;
 
 			return { dailyWeather, currentWeather };
 		} catch (error) {
-			let errorMessage = alert("City not found.");
-			return thunkAPI.rejectWithValue({ message: errorMessage });
+			console.error("Error in getWeatherFromApi:", error);  // Log the error details
+			thunkAPI.rejectWithValue('l');
+			throw error;  // Optional: rethrow the error to be caught by extraReducers
 		}
 	}
+
 );
 
 
@@ -110,11 +127,10 @@ export const weatherReducer = createSlice({
 			state.defaultCity = action.payload;
 		}
 	},
-
 	extraReducers: (builder) => {
 		builder
 			.addCase(getWeatherFromApi.fulfilled, (state, action) => {
-				const {dailyWeather, currentWeather} = action.payload;
+				const { dailyWeather, currentWeather } = action.payload;
 
 				state.time = dailyWeather.time;
 				state.temperatureMax = dailyWeather.temperature_2m_max;
@@ -134,10 +150,10 @@ export const weatherReducer = createSlice({
 				state.currentWeatherCode = [currentWeather.weather_code];
 			})
 			.addCase(getWeatherFromApi.rejected, (state, action) => {
-				console.error(action.payload)
-			})
+				console.error("Error:", action.payload);
+			});
 	},
 });
 
-export const {setCityName, setDefaultCity} = weatherReducer.actions;
+export const { setCityName, setDefaultCity } = weatherReducer.actions;
 export default weatherReducer.reducer;

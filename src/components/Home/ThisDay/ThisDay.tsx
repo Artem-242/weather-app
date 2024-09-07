@@ -1,5 +1,5 @@
 import React from "react";
-import {RootState} from "../../../Store/store";
+import {RootState} from "../../../store/store";
 import {useSelector} from "react-redux";
 import {DaysSvgSelector} from "../../../icons/DaysSvgSelector";
 import {getMonthName} from "../Days/OneDayCard";

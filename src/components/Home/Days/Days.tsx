@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {getMonthName, OneDayCard} from "./OneDayCard";
 import {useSelector} from "react-redux";
-import {RootState} from "../../../Store/store";
+import {RootState} from "../../../store/store";
 import {DayPopup} from "../../Popup/DayPopup";
 
 export interface Day {
