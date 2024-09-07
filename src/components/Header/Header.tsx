@@ -13,8 +13,7 @@ import { doSignOut } from '../../firebase/auth'
 export const Header = () => {
 
    const navigate = useNavigate()
-   const { userLoggedIn } = useAuth()
-   const { currentUser } = useAuth();
+   const { userLoggedIn, currentUser } = useAuth()
 
 	const dispatch = useDispatch<AppDispatch>();
 	const [inputValue, setInputValue] = useState("");
@@ -85,13 +84,14 @@ export const Header = () => {
 							}}
 						/>
 					</div>
-				</div>
+				</div> 
             {
                userLoggedIn
                   ?
-                  <>
-                     <button onClick={() => { doSignOut().then(() => { navigate('/home') }) }} className='text-sm text-blue-600 underline'>Logout</button>
-                  </>
+                  <div className="flex flex-col text-center text-sm">
+                     <span className="text-sm">{currentUser?.email}</span>
+                     <button onClick={() => { doSignOut().then(() => { navigate('/home') }) }} className='text-sm hover:underline'>Logout</button>
+                  </div>
                   :
                   <div className="flex flex-col text-center text-sm">
                      <Link className=' hover:underline' to={'/login'}>Login</Link>
