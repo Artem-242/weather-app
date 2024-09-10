@@ -3,7 +3,6 @@ import { SvgSelector } from "../../icons/SvgSelector";
 import { useDispatch } from "react-redux";
 import {AppDispatch} from "../../store/store";
 import {getWeatherFromApi, setCityName, setDefaultCity} from "../../store/slices";
-import {darkModeHandle} from "../../scripts/header";
 
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from "../../contexts/authContexts/AuthProvider";
@@ -33,6 +32,14 @@ export const Header = () => {
 		dispatch(getWeatherFromApi(cityName));
 		dispatch(setCityName(cityName));
 	};
+
+    const darkModeHandle = (darkMode: string) => {
+      if (darkMode === "dark") {
+         document.documentElement.classList.add("dark");
+      } else {
+         document.documentElement.classList.remove("dark");
+      }
+   }
 
 	useEffect(() => {
 		darkModeHandle(darkMode);

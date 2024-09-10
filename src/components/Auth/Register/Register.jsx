@@ -40,43 +40,49 @@ export const Register = () => {
                   className="space-y-4"
                >
                   <div>
-                     <label className="text-sm text-gray-600 font-bold">
+                     <label htmlFor="email" className="text-sm text-gray-600 font-bold" data-testid="email-label">
                         Email
                      </label>
                      <input
+                        id="email"
                         type="email"
                         autoComplete='email'
                         required
                         value={email} onChange={(e) => { setEmail(e.target.value) }}
-                        className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:indigo-600 shadow-sm rounded-lg transition duration-300"
+                        className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg transition duration-300"
+                        data-testid="email-input"
                      />
                   </div>
 
                   <div>
-                     <label className="text-sm text-gray-600 font-bold">
+                     <label htmlFor="password" className="text-sm text-gray-600 font-bold" data-testid="password-label">
                         Password
                      </label>
                      <input
+                        id="password"
                         disabled={isRegistering}
                         type="password"
                         autoComplete='new-password'
                         required
                         value={password} onChange={(e) => { setPassword(e.target.value) }}
                         className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg transition duration-300"
+                        data-testid="password-input"
                      />
                   </div>
 
                   <div>
-                     <label className="text-sm text-gray-600 font-bold">
+                     <label htmlFor="confirmPassword" className="text-sm text-gray-600 font-bold" data-testid="confirm-password-label">
                         Confirm Password
                      </label>
                      <input
+                        id="confirmPassword"
                         disabled={isRegistering}
                         type="password"
                         autoComplete='off'
                         required
                         value={confirmPassword} onChange={(e) => { setconfirmPassword(e.target.value) }}
                         className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg transition duration-300"
+                        data-testid="confirm-password-input"
                      />
                   </div>
 
@@ -88,6 +94,7 @@ export const Register = () => {
                      type="submit"
                      disabled={isRegistering}
                      className={`w-full px-4 py-2 text-white font-medium rounded-lg ${isRegistering ? 'bg-gray-300 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-700 hover:shadow-xl transition duration-300'}`}
+                     data-testid="submit-button"
                   >
                      {isRegistering ? 'Signing Up...' : 'Sign Up'}
                   </button>

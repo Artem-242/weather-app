@@ -1,3 +1,4 @@
+// Login.tsx
 import React, { useState } from 'react'
 import { Navigate, Link } from 'react-router-dom'
 import { doSignInWithEmailAndPassword, doSignInWithGoogle } from '../../../firebase/auth'
@@ -46,10 +47,11 @@ export const Login = () => {
                   className="space-y-5"
                >
                   <div>
-                     <label className="text-sm text-gray-600 font-bold">
+                     <label htmlFor="email" className="text-sm text-gray-600 font-bold">
                         Email
                      </label>
                      <input
+                        id="email"
                         type="email"
                         autoComplete='email'
                         required
@@ -58,12 +60,12 @@ export const Login = () => {
                      />
                   </div>
 
-
                   <div>
-                     <label className="text-sm text-gray-600 font-bold">
+                     <label htmlFor="password" className="text-sm text-gray-600 font-bold">
                         Password
                      </label>
                      <input
+                        id="password"
                         type="password"
                         autoComplete='current-password'
                         required

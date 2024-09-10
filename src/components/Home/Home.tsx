@@ -3,7 +3,6 @@ import {ThisDay} from "./ThisDay/ThisDay";
 import {Info} from "./Info/Info";
 import {Days} from "./Days/Days";
 import {Header} from "../Header/Header";
-import { Login } from '../Auth/Login/Login';
 
 export const Home = () => {
 	return (
